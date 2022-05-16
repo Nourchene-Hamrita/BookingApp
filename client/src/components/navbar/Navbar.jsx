@@ -13,7 +13,9 @@ const Navbar = () => {
         </Link>
         {user ? user.username : (
           <div className="navItems">
+             <Link to="/register" style={{ color: "inherit", textDecoration: "none" }}>
             <button className="navButton">Register</button>
+            </Link>
             <Link to="/login" style={{ color: "inherit", textDecoration: "none" }}>
               <button className="navButton">Login</button>
             </Link>
