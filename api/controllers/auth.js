@@ -46,3 +46,7 @@ export const login = async(req, res, next) => {
         next(err);
     }
 };
+export const logout = (req, res) => {
+    res.cookie('jwt', '', { maxAge: 1 });
+    res.redirect('/');
+}
