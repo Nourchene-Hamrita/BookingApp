@@ -2,7 +2,7 @@ import "./widget.scss";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import AccountBalanceWalletOutlinedIcon from "@mui/icons-material/AccountBalanceWalletOutlined";
-import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
+import EventSeat from "@mui/icons-material/EventSeat";
 import MonetizationOnOutlinedIcon from "@mui/icons-material/MonetizationOnOutlined";
 
 const Widget = ({ type }) => {
@@ -31,11 +31,11 @@ const Widget = ({ type }) => {
       break;
     case "order":
       data = {
-        title: "ORDERS",
+        title: "RESERVATIONS",
         isMoney: false,
-        link: "View all orders",
+        link: "View all reservations",
         icon: (
-          <ShoppingCartOutlinedIcon
+          <EventSeat
             className="icon"
             style={{
               backgroundColor: "rgba(218, 165, 32, 0.2)",

@@ -13,10 +13,28 @@ import PsychologyOutlinedIcon from "@mui/icons-material/PsychologyOutlined";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import { Link } from "react-router-dom";
 import { DarkModeContext } from "../../context/darkModeContext";
+import { AuthContext } from "../../context/AuthContext";
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Sidebar = () => {
   const { dispatch } = useContext(DarkModeContext);
+  const { loading, error, user } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const handleClick = async (e) => {
+   
+    try {
+      const res = await axios.get("/auth/logout");
+      if (res.data.isAdmin) {
+        user({ type: "LOGOUT" });
+        navigate("/login");
+      } 
+    } catch (err) {
+      console.log(err);
+    }
+  };
   return (
     <div className="sidebar">
       <div className="top">
@@ -53,10 +71,6 @@ const Sidebar = () => {
               <span>Rooms</span>
             </li>
           </Link>
-          <li>
-            <LocalShippingIcon className="icon" />
-            <span>Delivery</span>
-          </li>
           <p className="title">USEFUL</p>
           <li>
             <InsertChartIcon className="icon" />
@@ -84,9 +98,9 @@ const Sidebar = () => {
             <AccountCircleOutlinedIcon className="icon" />
             <span>Profile</span>
           </li>
-          <li>
+          <li  onClick={() => handleClick()}>
             <ExitToAppIcon className="icon" />
-            <span>Logout</span>
+            <span >Logout</span>
           </li>
         </ul>
       </div>
