@@ -1,11 +1,11 @@
-.navbar{
+.navbar {
   height: 50px;
   background-color: #003580;
   display: flex;
   justify-content: center;
 }
 
-.navContainer{
+.navContainer {
   width: 100%;
   max-width: 1024px;
   color: white;
@@ -14,15 +14,21 @@
   justify-content: space-between;
 }
 
-.logo{
+.logo {
   font-weight: 500;
 }
 
-.navButton{
+.navButton {
   margin-left: 20px;
   border: solid #febb02;
   padding: 5px 10px;
   cursor: pointer;
   color: #003580;
   border-radius: 5px;
+}
+
+@media only screen and (max-width: 380px) {
+  .navContainer {
+    width: 95%;
+  }
 }
